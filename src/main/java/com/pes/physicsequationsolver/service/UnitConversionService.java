@@ -19,12 +19,12 @@ public class UnitConversionService {
     }
 
     public double convert(double value, Unit fromUnit, Unit toUnit) {
-        if (!fromUnit.getClass().equals(toUnit.getClass()) && !(isTemperatureUnit(fromUnit) && isTemperatureUnit(toUnit))) {
-            throw new IllegalArgumentException("Incompatible units: " + fromUnit + " and " + toUnit);
-        }
-
         if (isTemperatureUnit(fromUnit) && isTemperatureUnit(toUnit)) {
             return convertTemperature(value, fromUnit, toUnit);
+        }
+
+        if (!fromUnit.getClass().equals(toUnit.getClass())) {
+            throw new IllegalArgumentException("Incompatible units: " + fromUnit + " and " + toUnit);
         }
 
         String category = fromUnit.getClass().getSimpleName().toLowerCase();
@@ -35,6 +35,7 @@ public class UnitConversionService {
 
         return value * factor;
     }
+
 
     private boolean isTemperatureUnit(Unit unit) {
         return unit instanceof TemperatureUnits;
