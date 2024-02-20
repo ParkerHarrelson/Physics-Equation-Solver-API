@@ -1,6 +1,7 @@
 package com.pes.physicsequationsolver.constants.units;
 
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
 public enum MassUnits implements Unit {

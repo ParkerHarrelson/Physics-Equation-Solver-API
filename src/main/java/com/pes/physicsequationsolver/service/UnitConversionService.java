@@ -19,6 +19,10 @@ public class UnitConversionService {
     }
 
     public double convert(double value, Unit fromUnit, Unit toUnit) {
+        if (fromUnit == toUnit) {
+            return value;
+        }
+
         if (isTemperatureUnit(fromUnit) && isTemperatureUnit(toUnit)) {
             return convertTemperature(value, fromUnit, toUnit);
         }
@@ -27,7 +31,7 @@ public class UnitConversionService {
             throw new IllegalArgumentException("Incompatible units: " + fromUnit + " and " + toUnit);
         }
 
-        String category = fromUnit.getClass().getSimpleName().toLowerCase();
+        String category = fromUnit.getClass().getSimpleName();
         String key = fromUnit + "_to_" + toUnit;
         Double factor = Optional.ofNullable(conversionFactors.get(category))
                 .map(factors -> factors.get(key))

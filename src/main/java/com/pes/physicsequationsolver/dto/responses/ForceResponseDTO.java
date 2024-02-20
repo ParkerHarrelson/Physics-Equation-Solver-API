@@ -1,6 +1,7 @@
-package com.pes.physicsequationsolver.dto.measurements;
+package com.pes.physicsequationsolver.dto.responses;
 
 import com.pes.physicsequationsolver.constants.units.Unit;
+import com.pes.physicsequationsolver.dto.measurements.VectorDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,8 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class MeasurementDTO {
+public class ForceResponseDTO {
 
-    private Double value;
+    private VectorDTO force;
+    private Double resultantForceMagnitude;
     private Unit unit;
 }

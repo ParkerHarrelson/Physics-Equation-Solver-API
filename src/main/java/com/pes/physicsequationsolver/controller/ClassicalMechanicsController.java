@@ -1,6 +1,7 @@
 package com.pes.physicsequationsolver.controller;
 
 import com.pes.physicsequationsolver.dto.requests.ForceCalculationRequestDTO;
+import com.pes.physicsequationsolver.dto.responses.ForceResponseDTO;
 import com.pes.physicsequationsolver.service.ClassicalMechanicsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -26,7 +27,7 @@ public class ClassicalMechanicsController {
 
     @GetMapping(value = URL_CALCULATE_FORCE)
     @Operation(description = "GET Endpoint for Calculating Results for Newton's Second Law of Motion")
-    public ResponseEntity<?> calculateForce(@RequestBody ForceCalculationRequestDTO forceCalculationRequest) {
+    public ResponseEntity<ForceResponseDTO> calculateForce(@RequestBody ForceCalculationRequestDTO forceCalculationRequest) {
         return new ResponseEntity<>(classicalMechanicsService.calculateForce(forceCalculationRequest), HttpStatus.OK);
     }
 }
