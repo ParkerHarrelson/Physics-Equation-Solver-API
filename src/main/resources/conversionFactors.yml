@@ -1,4 +1,31 @@
-massunits:
-  kg_to_g: 1000
-  g_to_kg: 0.001
+DistanceLengthUnits:
+  meter_to_centimeter: 100
+  meter_to_kilometer: 0.001
+  meter_to_feet: 3.28084
+  # Add more conversions as needed
 
+EnergyUnits:
+  joule_to_kilowatt_hour: 0.00000027778
+  joule_to_calorie: 0.239006
+  # Add more conversions as needed
+
+ForceUnits:
+  newton_to_pound_force: 0.224809
+  # Add more conversions as needed
+
+MassUnits:
+  kilogram_to_gram: 1000
+  kilogram_to_pound: 2.20462
+  gram_to_ounce: 0.035274
+  # Add more conversions as needed
+
+PressureUnits:
+  pascal_to_atmosphere: 0.00000986923
+  pascal_to_bar: 0.00001
+  atmosphere_to_psi: 14.6959
+  # Add more conversions as needed
+
+TimeUnits:
+  second_to_minute: 0.0166667
+  minute_to_hour: 0.0166667
+  # Add more conversions as needed
