@@ -1,0 +1,18 @@
+1. Classical Mechanics
+-  Newton's second law of motion
+- gravitational force
+- projectile motion
+
+2. Energy and Work
+- kinetic energy
+- potential energy in a gravitational field
+
+3. electricity and magnetism
+- ohm's law
+- coulumb's law
+
+4. thermodynamics
+- ideal gas law
+
+5. waves and optics
+- wave speed
