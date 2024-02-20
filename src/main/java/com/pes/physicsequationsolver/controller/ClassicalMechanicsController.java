@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import static com.pes.physicsequationsolver.constants.ApplicationConstants.URL_CLASSICAL_MECHANICS;
-import static com.pes.physicsequationsolver.constants.ApplicationConstants.URL_NEWTONS_SECOND_LAW;
+import static com.pes.physicsequationsolver.constants.ApplicationConstants.URL_CALCULATE_FORCE;
 
 
 @RestController
@@ -24,9 +24,9 @@ public class ClassicalMechanicsController {
 
     private final ClassicalMechanicsService classicalMechanicsService;
 
-    @GetMapping(value = URL_NEWTONS_SECOND_LAW)
+    @GetMapping(value = URL_CALCULATE_FORCE)
     @Operation(description = "GET Endpoint for Calculating Results for Newton's Second Law of Motion")
-    public ResponseEntity<?> calculateNewtonsSecondLaw(@RequestBody ForceCalculationRequestDTO forceCalculationRequest) {
-        return new ResponseEntity<>(classicalMechanicsService.calculateNewtonsSecondLaw(forceCalculationRequest), HttpStatus.OK);
+    public ResponseEntity<?> calculateForce(@RequestBody ForceCalculationRequestDTO forceCalculationRequest) {
+        return new ResponseEntity<>(classicalMechanicsService.calculateForce(forceCalculationRequest), HttpStatus.OK);
     }
 }

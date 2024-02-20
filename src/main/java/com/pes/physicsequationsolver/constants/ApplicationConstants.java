@@ -6,7 +6,7 @@ public class ApplicationConstants {
 
     // URLs
     public static final String URL_CLASSICAL_MECHANICS = "/classical-mechanics";
-    public static final String URL_NEWTONS_SECOND_LAW = "/netwons-second-law";
+    public static final String URL_CALCULATE_FORCE = "/calculate-force";
     
     // Offsets
     public static final Double KELVIN_OFFSET = 273.15;

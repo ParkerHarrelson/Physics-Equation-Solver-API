@@ -1,5 +1,6 @@
 package com.pes.physicsequationsolver.service;
 
+import com.pes.physicsequationsolver.dto.measurements.ForceDTO;
 import com.pes.physicsequationsolver.dto.requests.ForceCalculationRequestDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class ClassicalMechanicsService {
 
-    public Object calculateNewtonsSecondLaw(ForceCalculationRequestDTO forceCalculationRequest) {
+    public ForceDTO calculateForce(ForceCalculationRequestDTO forceCalculationRequest) {
         return null;
     }
 }
