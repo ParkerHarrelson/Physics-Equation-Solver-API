@@ -1,4 +1,4 @@
-package com.pes.physicsequationsolver.units;
+package com.pes.physicsequationsolver.constants.units;
 
 import lombok.Getter;
 

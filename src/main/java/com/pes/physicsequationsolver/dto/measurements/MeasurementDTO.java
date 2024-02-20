@@ -1,6 +1,6 @@
 package com.pes.physicsequationsolver.dto.measurements;
 
-import com.pes.physicsequationsolver.units.Unit;
+import com.pes.physicsequationsolver.constants.units.Unit;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

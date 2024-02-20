@@ -1,7 +1,7 @@
 package com.pes.physicsequationsolver.service;
 
-import com.pes.physicsequationsolver.units.TemperatureUnits;
-import com.pes.physicsequationsolver.units.Unit;
+import com.pes.physicsequationsolver.constants.units.TemperatureUnits;
+import com.pes.physicsequationsolver.constants.units.Unit;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
