@@ -1,5 +1,6 @@
 package com.pes.physicsequationsolver.dto.measurements;
 
+import com.pes.physicsequationsolver.constants.units.DistanceLengthUnits;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SphericalCoordinates {
+public class DistanceDTO {
 
-    private Double theta;
-    private Double phi;
+    private Double value = 0.0;
+    private DistanceLengthUnits unit = DistanceLengthUnits.METER;
 }

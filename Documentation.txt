@@ -1,0 +1,2 @@
+Physics Constants:
+    - Gravitational Constant (G) = G=6.67430×10^-11 N(m^2/kg^2)

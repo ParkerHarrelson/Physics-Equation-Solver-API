@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 public class MassDTO {
 
     private Double value = 0.0;
-    private MassUnits unit;
+    private MassUnits unit = MassUnits.KILOGRAM;
 }

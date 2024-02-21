@@ -2,6 +2,7 @@ package com.pes.physicsequationsolver.service;
 
 import com.pes.physicsequationsolver.constants.units.TemperatureUnits;
 import com.pes.physicsequationsolver.constants.units.Unit;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -10,13 +11,10 @@ import java.util.Optional;
 import static com.pes.physicsequationsolver.constants.ApplicationConstants.*;
 
 @Service
+@AllArgsConstructor
 public class UnitConversionService {
 
     private final Map<String, Map<String, Double>> conversionFactors;
-
-    public UnitConversionService(Map<String, Map<String, Double>> conversionFactors) {
-        this.conversionFactors = conversionFactors;
-    }
 
     public double convert(double value, Unit fromUnit, Unit toUnit) {
         if (fromUnit == toUnit) {

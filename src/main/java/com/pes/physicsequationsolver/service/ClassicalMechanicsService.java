@@ -1,15 +1,19 @@
 package com.pes.physicsequationsolver.service;
 
 import com.pes.physicsequationsolver.constants.coordinates.CoordinateSystemType;
+import com.pes.physicsequationsolver.constants.units.DistanceLengthUnits;
 import com.pes.physicsequationsolver.constants.units.ForceUnits;
 import com.pes.physicsequationsolver.constants.units.MassUnits;
 import com.pes.physicsequationsolver.dto.measurements.VectorDTO;
 import com.pes.physicsequationsolver.dto.requests.ForceCalculationRequestDTO;
+import com.pes.physicsequationsolver.dto.requests.GravitationalForceRequestDTO;
 import com.pes.physicsequationsolver.dto.responses.ForceResponseDTO;
+import com.pes.physicsequationsolver.dto.responses.GravitationalForceResponseDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
+import static com.pes.physicsequationsolver.constants.ApplicationConstants.GRAVITATIONAL_CONSTANT;
+import static java.util.Objects.isNull;
 
 @Service
 @AllArgsConstructor
@@ -19,7 +23,7 @@ public class ClassicalMechanicsService {
 
     public ForceResponseDTO calculateForce(ForceCalculationRequestDTO forceCalculationRequest) {
 
-        if (Objects.isNull(forceCalculationRequest.getMass()) || Objects.isNull(forceCalculationRequest.getAcceleration())) {
+        if (isNull(forceCalculationRequest.getMass()) || isNull(forceCalculationRequest.getAcceleration())) {
             throw new RuntimeException("fix this later");
         }
 
@@ -58,6 +62,28 @@ public class ClassicalMechanicsService {
                 .force(resultantVector)
                 .resultantForceMagnitude(resultantForceMagnitude)
                 .unit(ForceUnits.NEWTONS)
+                .build();
+    }
+
+    public GravitationalForceResponseDTO calculateGravitationalForce(GravitationalForceRequestDTO gravitationalForceRequest) {
+        if (isNull(gravitationalForceRequest.getBodyOneMass())
+                || isNull(gravitationalForceRequest.getBodyTwoMass())
+                || isNull(gravitationalForceRequest.getDistanceBetweenBodies())) {
+            throw new RuntimeException("fix this as well");
+        }
+
+        Double bodyOneMass = unitConversionService
+                .convert(gravitationalForceRequest.getBodyOneMass().getValue(), gravitationalForceRequest.getBodyOneMass().getUnit(), MassUnits.KILOGRAM);
+        Double bodyTwoMass = unitConversionService
+                .convert(gravitationalForceRequest.getBodyTwoMass().getValue(),  gravitationalForceRequest.getBodyTwoMass().getUnit(), MassUnits.KILOGRAM);
+        Double distanceBetweenBodies = unitConversionService
+                .convert(gravitationalForceRequest.getDistanceBetweenBodies().getValue(), gravitationalForceRequest.getDistanceBetweenBodies().getUnit(), DistanceLengthUnits.METER);
+
+        Double resultantForce = GRAVITATIONAL_CONSTANT * ((bodyOneMass * bodyTwoMass) / (distanceBetweenBodies * distanceBetweenBodies));
+
+        return GravitationalForceResponseDTO.builder()
+                .resultantForce(resultantForce)
+                .forceUnit(ForceUnits.NEWTONS)
                 .build();
     }
 }

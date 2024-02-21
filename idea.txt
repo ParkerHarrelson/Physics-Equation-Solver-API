@@ -1,5 +1,5 @@
 1. Classical Mechanics
--  Newton's second law of motion
+- Newton's second law of motion
 - gravitational force
 - projectile motion
 
